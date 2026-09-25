@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>AI Agent NHI Review Planner | Silastron</title>
+  <meta name="description" content="Review AI agent identities, delegated permissions, approval boundaries, and containment. Generate a private, local checklist with concrete verification steps.">
+  <!-- Update canonical and og:url together if deploying under a different owner or repository. -->
+  <link rel="canonical" href="https://silastron.github.io/ai-agent-nhi-review/">
+  <meta property="og:title" content="AI Agent NHI Review Planner">
+  <meta property="og:description" content="Map an agent's authority. Find control gaps. Export a practical review checklist, entirely in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://silastron.github.io/ai-agent-nhi-review/">
+  <meta property="og:site_name" content="Silastron">
+  <link rel="stylesheet" href="styles.css">
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to planner</a>
+  <header class="site-header wrap">
+    <a class="brand" href="https://silastron.com">SILASTRON<span> / FIELD TOOLS</span></a>
+    <button id="theme" type="button" aria-pressed="false">Dark theme</button>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <p class="eyebrow">IDENTITY SECURITY / REVIEW 01</p>
+      <h1 id="title">An agent has a task.<br><span>What authority does it have?</span></h1>
+      <p class="intro">AI Agent NHI Review Planner</p>
+      <p class="lede">Turn an agent's identity and permission design into a concrete review plan. Check the controls, find the unknowns, and take verification steps back to your team.</p>
+      <p class="privacy">Your data is processed locally in your browser and is not sent to Silastron or any third party.</p>
+      <p class="small">No credentials needed. No analytics. No saved answers. Hosting receives normal page requests, but no questionnaire answers.</p>
+    </section>
+    <section class="path" aria-label="Authority review path">
+      <div><span>01 / INITIATE</span><strong>User or scheduled task</strong><p>Whose authority starts the work?</p></div>
+      <div><span>02 / AUTHENTICATE</span><strong>Agent workload</strong><p>Which identity obtains credentials?</p></div>
+      <div><span>03 / AUTHORIZE</span><strong>Tool executor</strong><p>What enforces each decision?</p></div>
+      <div><span>04 / ACCESS</span><strong>Target resource</strong><p>Which objects and actions are reachable?</p></div>
+    </section>
+    <div class="workspace">
+      <section class="panel" aria-labelledby="inputs-heading">
+        <div class="section-heading"><p class="eyebrow">01 / DESCRIBE</p><h2 id="inputs-heading">Review one execution path</h2></div>
+        <p>Include downstream tools and identities. Choose “Yes” only when every part of a control is present. Keep unknowns explicit.</p>
+        <div class="actions examples"><button type="button" id="exposed">Exposed example</button><button type="button" id="constrained">Constrained example</button></div>
+        <noscript><p class="error">JavaScript is required to generate a review. The explanation and source links remain available.</p></noscript>
+        <form id="review-form" autocomplete="off">
+          <div id="questions"></div>
+          <p id="error" class="error" role="alert" hidden></p>
+          <div class="actions"><button class="primary" type="submit" id="generate" disabled>Generate review</button><button type="reset">Reset</button></div>
+        </form>
+      </section>
+      <section class="panel results" aria-labelledby="results-heading">
+        <p class="eyebrow">02 / VERIFY</p>
+        <h2 id="results-heading" tabindex="-1">Your review plan</h2>
+        <p id="summary" role="status">No review yet. Describe a path or load an example to get started.</p>
+        <p class="small">WARNING = declared gap or administrative exposure. INFO = unknown or context. PASS = declared control, never verified security. ERROR = invalid input.</p>
+        <div class="actions"><button id="copy" type="button" disabled>Copy report</button><button id="download" type="button" disabled>Download .txt</button></div>
+        <p id="export-status" role="status" class="small"></p>
+        <div id="findings"><p class="empty">Your output will include control gaps, unanswered questions, and a concrete test for each applicable control. There is no numerical risk score.</p></div>
+        <div id="fallback" hidden><label for="report-text">Report text — select and copy manually</label><textarea id="report-text" readonly rows="8"></textarea></div>
+      </section>
+    </div>
+    <section class="reference panel" aria-labelledby="method-heading">
+      <p class="eyebrow">03 / UNDERSTAND</p><h2 id="method-heading">A review aid, not a security verdict</h2>
+      <p>A non-human identity represents software or a workload. Its credential proves identity or conveys authority; its permissions determine reachable operations. An AI agent can use several such identities as it selects and chains tools.</p>
+      <p>This planner uses 12 transparent, practitioner-authored control questions. “No” produces a warning; “Not known” requests evidence; “Yes” records a self-reported control. Read-only paths skip the high-impact write-approval check. Paths without delegation skip the delegation check. Unknown context never skips either. Administrative authority always adds a warning.</p>
+      <p>Counts indicate review coverage, not risk, probability, or compliance. The planner does not inspect IAM policies, credentials, cloud accounts, model behavior, or actual enforcement. Read-only access can still leak data. Review each materially different path separately.</p>
+      <p>Answers stay in page memory. Reset clears the form and report; it cannot remove downloaded files or clipboard copies. Export only when you intend to share or retain the report. Browser extensions and browser-managed history or form restoration are outside this application's control.</p>
+      <p>Basis: <a href="https://owasp.org/www-project-non-human-identities-top-10/">OWASP NHI risks</a>, <a href="https://owasp.github.io/www-project-top-10-for-large-language-model-applications/2_0_vulns/LLM06_ExcessiveAgency.html">excessive agency</a>, and <a href="https://www.rfc-editor.org/rfc/rfc8693.html">OAuth token exchange</a>. These sources inform the review; they do not certify these rules.</p>
+      <!-- Intended article URL: publish the supplied article at this route or update this link before launch. -->
+      <p><a href="https://silastron.com/what-is-nhi-ai-agents/">Read the full article: What Is NHI, and How Do AI Agents Change the Problem?</a></p>
+    </section>
+  </main>
+  <footer class="wrap"><span>Built by <a href="https://silastron.com">Silastron</a> · MIT licensed · Rules 1.0.0</span><a href="https://github.com/silastron/ai-agent-nhi-review">Source &amp; methodology on GitHub</a></footer>
+</body>
+</html>
