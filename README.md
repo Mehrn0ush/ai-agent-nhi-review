@@ -18,7 +18,7 @@ Inventorying a service account does not explain how an agent can use it. Enginee
 
 ## Demo
 
-Intended URL after deployment: https://silastron.github.io/ai-agent-nhi-review/
+Intended URL after deployment: [https://mehrn0ush.github.io/ai-agent-nhi-review/](https://mehrn0ush.github.io/ai-agent-nhi-review/)
 
 This repository does not imply that the demo or companion article is already published.
 
